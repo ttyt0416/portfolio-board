@@ -1,0 +1,118 @@
+@import "../../media-query";
+
+.authmodal {
+  &__container {
+    position: fixed;
+    background-color: white;
+    width: 30%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 10px solid rgb(171, 212, 228);
+    border-radius: 5%;
+  }
+
+  &__auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+
+    &-title {
+      font-size: 3rem;
+      font-weight: 500;
+      color: rgb(171, 212, 228);
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > input:not(:nth-child(3)) {
+        margin-top: 0.5rem;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        font-size: 1.5rem;
+        outline: 3px solid white;
+        border: 3px solid rgb(171, 212, 228);
+        border-radius: 0.5rem;
+
+        &:focus {
+          background-color: rgb(171, 212, 228);
+          color: white;
+        }
+
+        &:focus::placeholder {
+          color: white;
+        }
+
+        &::placeholder {
+          color: rgb(49, 63, 68);
+        }
+      }
+    }
+
+    &-submit {
+      width: 90%;
+      padding: 0.5rem 0;
+      margin-top: 0.5rem;
+      background-color: inherit;
+      font-weight: 900;
+      color: rgb(49, 63, 68);
+      border: 5px solid rgb(171, 212, 228);
+      border-radius: 1rem;
+      font-size: 1rem;
+
+      transition: all 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: rgb(171, 212, 228);
+        cursor: pointer;
+      }
+    }
+
+    &-span {
+      font-weight: 500;
+    }
+
+    &-toggle {
+      margin-top: 0.5rem;
+      background-color: inherit;
+      border: none;
+      color: rgb(49, 63, 68);
+      font-weight: 900;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    &-social {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-weight: 900;
+      background-color: inherit;
+      border: 5px solid rgb(171, 212, 228);
+      border-radius: 0.5rem;
+      color: rgb(49, 63, 68);
+
+      transition: all 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: rgb(171, 212, 228);
+        cursor: pointer;
+      }
+    }
+
+    &-google {
+      padding-right: 0.5rem;
+      color: inherit;
+    }
+  }
+}
