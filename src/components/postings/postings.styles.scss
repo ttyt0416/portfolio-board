@@ -1,0 +1,20 @@
+.postings {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 35%;
+  text-align: center;
+  border: 10px solid rgb(171, 212, 228);
+  border-radius: 10px;
+
+  &__image {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}

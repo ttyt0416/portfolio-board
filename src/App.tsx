@@ -40,8 +40,12 @@ const App: React.FC = () => {
     <>
       <Header userObj={userObj} />
       <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route exact path="/post" component={Postpage} />
+        <Route exact path="/">
+          <Homepage userObj={userObj} />
+        </Route>
+        <Route exact path="/post">
+          <Postpage userObj={userObj} />
+        </Route>
       </Switch>
     </>
   );

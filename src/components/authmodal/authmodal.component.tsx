@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, useState } from "react";
+import React, { useState } from "react";
 import "./authmodal.styles.scss";
 
 import { authService, firebaseInstance } from "../../firebase/firebase";

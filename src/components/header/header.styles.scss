@@ -1,6 +1,50 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
 .header {
-  position: absolute;
+  position: fixed;
   z-index: 4;
+  width: 100%;
+  margin-top: 3rem;
+
+  &__links {
+    display: flex;
+    justify-content: space-around;
+    vertical-align: middle;
+  }
+
+  &__link {
+    list-style: none;
+    border: 5px solid rgb(171, 212, 228);
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+
+    transition: all 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(171, 212, 228);
+    }
+
+    &:hover &-link {
+      color: white;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: rgb(171, 212, 228);
+      transition: all 0.5s;
+    }
+  }
 
   &__modalcloser {
     position: absolute;
@@ -9,5 +53,7 @@
     background-color: black;
     z-index: 8;
     opacity: 0.5;
+
+    animation: appear 0.5s;
   }
 }
