@@ -76,7 +76,7 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
 
   console.log(attachment);
 
-  const onClearAttachment = () => setAttachment(null);
+  const onClearAttachment = () => setAttachment(undefined);
 
   return (
     <div className="postpage">
@@ -97,7 +97,12 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
             {attachment === undefined ? (
               "Select Image"
             ) : (
-              <img className="postpage__post-image" alt="" src={attachment} />
+              <img
+                className="postpage__post-image"
+                alt=""
+                src={attachment}
+                onClick={onClearAttachment}
+              />
             )}
           </label>
           <input
