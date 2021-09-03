@@ -165,4 +165,13 @@
       }
     }
   }
+
+  &__dates {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding-top: 1rem;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 import { authService } from "./firebase/firebase";
 
 import Homepage from "./pages/homepage/homepage.component";
@@ -43,9 +43,15 @@ const App: React.FC = () => {
         <Route exact path="/">
           <Homepage userObj={userObj} />
         </Route>
-        <Route exact path="/post">
-          <Postpage userObj={userObj} />
-        </Route>
+        {userObj == null ? (
+          <Route path="/">
+            <Redirect to="/" />
+          </Route>
+        ) : (
+          <Route exact path="/post">
+            <Postpage userObj={userObj} />
+          </Route>
+        )}
       </Switch>
     </>
   );

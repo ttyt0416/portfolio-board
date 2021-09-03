@@ -32,8 +32,11 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
     const postingObj = {
       title: title,
       text: text,
-      liked: new Array(),
-      createdAt: Date.now(),
+      editedAt: "",
+      createdAt: Intl.DateTimeFormat("ja-JP", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }).format(Date.now()),
       creatorId: userInfo.uid,
       attachmentUrl,
     };

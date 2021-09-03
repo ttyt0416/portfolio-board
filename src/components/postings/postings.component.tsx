@@ -7,17 +7,10 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 interface PostInfo {
   postingObj: any;
-  isLoggedIn: boolean;
   isOwner: boolean;
-  userObj: any;
 }
 
-const Postings: React.FC<PostInfo> = ({
-  postingObj,
-  isLoggedIn,
-  isOwner,
-  userObj,
-}) => {
+const Postings: React.FC<PostInfo> = ({ postingObj, isOwner }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editAttach, setEditAttach] = useState<any>();
   const [editTitle, setEditTitle] = useState<string>("");
@@ -33,7 +26,6 @@ const Postings: React.FC<PostInfo> = ({
 
   const toggleEdit = () => {
     setEdit(!edit);
-    console.log(edit);
   };
 
   const onEditSubmit = async (event: React.FormEvent) => {
@@ -42,7 +34,10 @@ const Postings: React.FC<PostInfo> = ({
       attachmentUrl: editAttach,
       title: editTitle,
       text: editText,
-      editedAt: Date.now(),
+      editedAt: Intl.DateTimeFormat("ja-JP", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      }).format(Date.now()),
     };
     await dbService.doc(`postings/${postingObj.id}`).update(body);
     setEdit(false);
@@ -153,6 +148,16 @@ const Postings: React.FC<PostInfo> = ({
           <div className="postings__content">
             <p className="postings__title">{postingObj.title}</p>
             <p className="postings__text">{postingObj.text}</p>
+            <div className="postings__dates">
+              <p className="postings__dates-created">
+                {postingObj.createdAt.toString()}
+              </p>
+              {postingObj.editedAt !== undefined ? (
+                <p className="postings__dates-edited">
+                  Edited At {postingObj.editedAt}
+                </p>
+              ) : null}
+            </div>
             {isOwner ? (
               <div className="postings__buttons">
                 <FontAwesomeIcon

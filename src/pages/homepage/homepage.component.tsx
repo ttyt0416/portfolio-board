@@ -25,17 +25,21 @@ const Homepage: React.FC<UserObj> = (userObj) => {
   }, []);
   return (
     <div className="homepage">
-      <div className="homepage__container">
+      <div className="homepage__flexhelper"></div>
+      <div className="homepage__postings">
         {postings.map((postings: any) => (
           <Postings
             key={postings.id}
             postingObj={postings}
-            isLoggedIn={Boolean(userObj)}
-            isOwner={Boolean(postings.creatorId === userObj.userObj.uid)}
-            userObj={userObj.userObj}
+            isOwner={
+              userObj.userObj == null
+                ? false
+                : postings.creatorId === userObj.userObj.uid
+            }
           />
         ))}
       </div>
+      <div className="homepage__flexhelper"></div>
     </div>
   );
 };
