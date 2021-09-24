@@ -11,6 +11,7 @@ const Authmodal: React.FC = () => {
   const [Password, setPassword] = useState<string>("");
   const [auth, setAuth] = useState<boolean>(false);
 
+  // get value of email or password when change
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
@@ -22,6 +23,7 @@ const Authmodal: React.FC = () => {
     }
   };
 
+  // function for when click Submit button
   const onSubmit = async (event: any) => {
     event.preventDefault();
     try {
@@ -30,8 +32,10 @@ const Authmodal: React.FC = () => {
         target: { name },
       } = event;
       if (name === "signin") {
+        // when it is signin mode
         data = await authService.signInWithEmailAndPassword(Email, Password);
       } else if (name === "signup") {
+        // when it is signup mode
         data = await authService.createUserWithEmailAndPassword(
           Email,
           Password
@@ -42,11 +46,13 @@ const Authmodal: React.FC = () => {
     }
   };
 
+  // toggle signin and signup mode
   const toggleAuth = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     setAuth(!auth);
   };
 
+  // when click 'signin with google'
   const onSocialClick = async (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     let provider = new firebaseInstance.auth.GoogleAuthProvider();

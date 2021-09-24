@@ -16,6 +16,7 @@ const Postings: React.FC<PostInfo> = ({ postingObj, isOwner }) => {
   const [editTitle, setEditTitle] = useState<string>("");
   const [editText, setEditText] = useState<string>("");
 
+  // when click delete button
   const postDelete = async () => {
     const check = window.confirm("delete this post?");
     if (check) {
@@ -24,6 +25,7 @@ const Postings: React.FC<PostInfo> = ({ postingObj, isOwner }) => {
     }
   };
 
+  // toggle edit mode
   const toggleEdit = () => {
     setEdit(!edit);
   };
@@ -73,6 +75,7 @@ const Postings: React.FC<PostInfo> = ({ postingObj, isOwner }) => {
     setEditText(value);
   };
 
+  // when in edit mode and click image, clear file
   const onClearEditAttach = () => setEditAttach(undefined);
 
   return (

@@ -11,6 +11,8 @@ interface UserObj {
 
 const Homepage: React.FC<UserObj> = (userObj) => {
   const [postings, setPostings] = useState<any>([]);
+
+  //get data of posted postings from firebase when page is loaded
   useEffect(() => {
     dbService
       .collection("postings")

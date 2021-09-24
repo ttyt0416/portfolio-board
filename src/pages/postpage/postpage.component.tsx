@@ -19,6 +19,7 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
   const [text, setText] = useState<string>("");
   let history = useHistory();
 
+  //when click Submit button
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     let attachmentUrl = "";
@@ -47,6 +48,7 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
     history.push("/");
   };
 
+  // get data when title changes
   const onTitleChange = (event: any) => {
     const {
       target: { value },
@@ -54,6 +56,7 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
     setTitle(value);
   };
 
+  // get data when value of textarea changes
   const onTextChange = (event: any) => {
     const {
       target: { value },
@@ -61,6 +64,7 @@ const Postpage: React.FC<UserInfo> = (userObj) => {
     setText(value);
   };
 
+  // get data when file is loaded(value of input type file changes)
   const onFileChange = (event: any) => {
     const {
       target: { files },
